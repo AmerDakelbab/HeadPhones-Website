@@ -8,12 +8,14 @@ function Footer() {
     return (
         <div className="bg-gradient-to-b from-[#F5F5F5] to-[#D2CDC6] pt-12">
             <div className='flex flex-col  items-center text-center'>
-            <div>
-                <p className='text-primary font-bold text-4xl pt-12'> Sound.  Presence.  Purpose.</p>
+            <div className='flex flex-col md:flex-row gap-4 md:gap-12'>
+                <p className='text-primary font-semibold text-4xl '>Sound.</p>
+                <p className='text-primary font-semibold text-4xl'>Presence.</p>
+                <p className='text-primary font-semibold text-4xl '>Purpose.</p>
             </div>
             <div>
-                <p className='text-secondary font-semibold text-lg pt-6'>Focused on crafting immersive audio experiences.<br />
-                We believe sound should not just be heard—it should move you.
+                <p className='text-secondary font-light text-base pt-6'>Focused on crafting immersive<br /> audio experiences.<br />
+                We believe sound should not just be<br /> heard—it should move you.
                 </p>
             </div>
             <div className='pt-8 pb-12 flex gap-4'>
@@ -24,12 +26,12 @@ function Footer() {
 
 
             <div className=' border-t border-gray-400 flex justify-between items-center px-12 py-8'>
-                <div>
+                <div className='hidden md:block'>
                     <img className='w-32' src={logo} alt='logo' />
                 </div>
-                <div className='flex items-center px-5'>
+                <div className='flex flex-col md:flex-row items-center px-5'>
                     <div>
-                        <p className='text-primary font-medium mx-5'>© 2025 Resonance. All rights reserved.</p>
+                        <p className='text-primary text-sm tracking-wide mx-0 font-normal mb-5 md:mb-0 md:mx-5'>© 2025 Resonance. All rights reserved.</p>
                     </div>
                     <div className='flex gap-4'>
                         <img className='w-6' src={Discord} alt='Discord Logo' />

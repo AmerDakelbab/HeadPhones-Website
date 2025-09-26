@@ -3,6 +3,7 @@ import GradButton from '../Components/GradButton';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import featureImage from '../Assests/feature Image.png';
+import featureImageMobile from '../Assests/feature ImageMobile.png';
 import square1 from '../Assests/HeadPhone Detail 1.png';
 import square2 from '../Assests/HeadPhone Detail 2.png';
 import square3 from '../Assests/HeadPhone Detail 3.png';
@@ -12,6 +13,9 @@ import square6 from '../Assests/HeadPhone Detail 6.png';
 import brochure1 from '../Assests/Brochure 1.png';
 import brochure2 from '../Assests/Brochure 2.png';
 import brochure3 from '../Assests/Brochure 3.png';
+import brochure1M from '../Assests/Brochure 1M.png';
+import brochure2M from '../Assests/Brochure 2M.png';
+import brochure3M from '../Assests/Brochure 3M.png';
 import HeadphoneImage from '../Assests/Headphone Image.png';
 import HeadPhoneW from '../Assests/headphonesW.png';
 import HeadPhoneR from '../Assests/headphonesR.png';
@@ -36,33 +40,39 @@ function Home() {
       <Header />
 
       {/* Hero Section */}
-      <div className="flex flex-col justify-center items-center  relative bg-gradient-to-b from-[#F5F5F5] to-[#E7E3DD]">
-        <p className="absolute top-48 text-9xl text-primary font-extrabold tracking-wider z-20">
+      <div className="flex flex-col justify-center items-center  relative bg-gradient-to-b pt-3 md:pt-5 from-[#F5F5F5] to-[#E7E3DD]">
+        {/* mobile design section */}
+        <div className="flex flex-col md:hidden text-center justify-center items-center pt-24">
+          <p className="text-6xl text-primary font-bold tracking-wider z-20">Resonance</p>
+          <p className="text-5xl  bg-gradient-to-t from-[#DACCBC] to-[#AFA497] bg-clip-text text-transparent mt-2 font-extrabold tracking-widest z-20">Aura Pro II</p>
+        </div>
+
+        <p className="hidden md:flex md:absolute md:top-64  md:text-[160px]  md:text-primary md:font-extrabold md:tracking-widest  md:z-20">
           Resonance
         </p>
         <img
           src={HeadphoneImage}
           alt="Headphone"
-          className="relative z-10 w-full max-w-3xl object-contain"
+          className="relative -mt-7 md:-mt-0 z-10 h-420 "
         />
-        <p className="absolute bottom-80 text-9xl font-bold text-secondary tracking-wider z-0">
+        <p className="hidden md:flex md:absolute md:top-[345px] md:mt-24  md:text-[140px] md:font-bold  bg-gradient-to-t bg-clip-text text-transparent from-[#DACCBC] to-[#AFA497] md:tracking-widest md:z-0">
           Aura Pro II
         </p>
       </div>
 
       {/* Colors Section */}
-      <div className="flex flex-col items-center text-center px-12 pt-16 pb-16 bg-gradient-to-b from-[#E7E3DD] to-[#D2CDC6]">
+      <div className="flex flex-col items-center text-center px-12  md:pt-16 pb-16 bg-gradient-to-b from-[#E7E3DD] to-[#D2CDC6]">
         <div>
-          <p className="text-5xl text-primary font-semibold">Your Style. Your Sound.</p>
-          <p className="text-2xl py-8 text-secondary">
+          <p className="text-4xl md:text-5xl text-primary leading-normal md:leading-none font-semibold">Your Style. Your Sound.</p>
+          <p className="text-base md:text-2xl py-4 text-secondary">
             Studio-grade acoustics that dissolve distractions and awaken clarity.
           </p>
         </div>
 
         <div className="flex gap-8 justify-center items-center">
-          <img className="h-96 blur-sm" src={HeadPhoneY} alt="Headphone" />
-          <img className="h-[28rem]" src={HeadPhoneG} alt="Headphone" /> 
-          <img className="h-96 blur-sm" src={HeadPhoneR} alt="Headphone" />
+          <img className="hidden md:block h-96 blur-sm" src={HeadPhoneY} alt="Headphone" />
+          <img className="w-96 object-contain" src={HeadPhoneG} alt="Headphone" /> 
+          <img className="hidden md:block h-96 blur-sm" src={HeadPhoneR} alt="Headphone" />
         </div>
 
         <div className="flex gap-8 py-8">
@@ -75,24 +85,27 @@ function Home() {
       </div>
 
       {/* Brochures Section */}
-      <div className='pt-24 pb-40 px-16 flex gap-4 overflow-x-auto hide-scrollbar scroll-smooth snap-x'>
-        <img className='h-96 object-contain' src={brochure1} alt="Brochure 1" />
-        <img className='h-96 object-contain' src={brochure2} alt="Brochure 2" />
-        <img className='h-96 object-contain' src={brochure3} alt="Brochure 3" />
+      <div className='pt-24 pb-24 md:pb-40 px-5 md:px-16 flex gap-4 overflow-x-auto hide-scrollbar scroll-smooth snap-x '>
+        <img className='hidden md:flex h-96 object-contain' src={brochure1} alt="Brochure 1" />
+        <img className='hidden md:flex h-96 object-contain' src={brochure2} alt="Brochure 2" />
+        <img className='hidden md:flex h-96 object-contain' src={brochure3} alt="Brochure 3" />
+        <img className='block md:hidden  object-cover' src={brochure1M} alt="Brochure 1M" />
+        <img className='block md:hidden  object-cover' src={brochure2M} alt="Brochure 2M" />
+        <img className='block md:hidden object-cover' src={brochure3M} alt="Brochure 3M" />
       </div>
 
 
       {/* HeadPhone Details Section */}
-      <div className='flex-col items-center text-center px-12  pr-5'>
+      <div className='flex-col items-center text-center px-6 md:px-12  md:pr-5'>
         <div>
-          <p className='text-5xl text-primary font-semibold'>Every Detail Matters</p>
-          <p className='text-xl py-8 text-secondary'>From the stitch to the signal, precision lives here.</p>
+          <p className='text-5xl leading-snug md:leading-none text-primary font-semibold'>Every Detail Matters</p>
+          <p className='text-lg md:text-xl py-8 text-secondary'>From the stitch to the signal, precision lives here.</p>
         </div>
         <div className="flex gap-4 pb-32 pt-8 overflow-x-auto hide-scrollbar scroll-smooth snap-x">
           {detailsData.map((detail) => (
             <img
               key={detail.id}
-              className="w-1/4 flex-shrink-0 object-cover snap-start"
+              className="w-96 md:w-1/4 flex-shrink-0 object-cover snap-start"
               src={detail.image}
               alt={detail.alt}
             />
@@ -103,7 +116,8 @@ function Home() {
 
       {/* Feature Section */}
       <div>
-        <img src={featureImage} alt="Feature" />
+        <img className="hidden md:block" src={featureImage} alt="Feature" />
+        <img className='md:hidden' src={featureImageMobile} alt="Feature" />
       </div>
 
 

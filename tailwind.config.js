@@ -13,6 +13,9 @@ export default {
                 yellowish: '#D8B74B',
                 reddish: '#883D39',
             },
+            sizes: {
+                '420': '420px'
+            }
         },
     },
     plugins: [],
