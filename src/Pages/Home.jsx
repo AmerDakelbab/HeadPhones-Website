@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GradButton from '../Components/GradButton';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -23,6 +23,7 @@ import HeadPhoneC from '../Assests/headphonesC.png';
 import HeadPhoneY from '../Assests/headphonesY.png';
 import HeadPhoneG from '../Assests/headphonesG.png';
 import HeadPhoneP from '../Assests/headphonesP.png';
+import { Link } from 'react-router-dom';
 
 
 const detailsData = [
@@ -34,6 +35,15 @@ const detailsData = [
   { id: 5, image: square5, alt: 'square5' },
 ]
 function Home() {
+
+  const [selectedImage, setSelectedImage] = useState(HeadPhoneG);
+
+  const colorOptions = [
+    { color: "bg-yellowish", img: HeadPhoneY },
+    { color: "bg-greenish border border-gray-800", img: HeadPhoneG },
+    { color: "bg-reddish", img: HeadPhoneR },
+  ];
+
   return (
     <div className='font-poppins'>
       {/* Header Section */}
@@ -61,24 +71,51 @@ function Home() {
       </div>
 
       {/* Colors Section */}
-      <div className="flex flex-col items-center text-center px-12  md:pt-16 pb-16 bg-gradient-to-b from-[#E7E3DD] to-[#D2CDC6]">
+      <div className="flex flex-col items-center text-center px-12 md:pt-8 pb-16 bg-gradient-to-b from-[#E7E3DD] to-[#D2CDC6]">
         <div>
-          <p className="text-4xl md:text-5xl text-primary leading-normal md:leading-none font-semibold">Your Style. Your Sound.</p>
+          <p className="text-4xl md:text-5xl text-primary leading-normal md:leading-none font-semibold">
+            Your Style. Your Sound.
+          </p>
           <p className="text-base md:text-2xl py-4 text-secondary">
             Studio-grade acoustics that dissolve distractions and awaken clarity.
           </p>
         </div>
 
+        {/* Images */}
         <div className="flex gap-8 justify-center items-center">
-          <img className="hidden md:block h-96 blur-sm" src={HeadPhoneY} alt="Headphone" />
-          <img className="w-96 object-contain" src={HeadPhoneG} alt="Headphone" /> 
-          <img className="hidden md:block h-96 blur-sm" src={HeadPhoneR} alt="Headphone" />
+          
+          <img
+            className="hidden md:block h-96 blur-sm cursor-pointer hover:blur-0 transition"
+            src={HeadPhoneY}
+            alt="Headphone Yellow"
+            onClick={() => setSelectedImage(HeadPhoneY)}
+          />
+
+          
+          <img
+            className="w-[32rem] object-contain transition-all duration-300"
+            src={selectedImage}
+            alt="Selected Headphone"
+          />
+
+          
+          <img
+            className="hidden md:block h-96 blur-sm cursor-pointer hover:blur-0 transition"
+            src={HeadPhoneR}
+            alt="Headphone Red"
+            onClick={() => setSelectedImage(HeadPhoneR)}
+          />
         </div>
 
+        {/* Color picker */}
         <div className="flex gap-8 py-8">
-          <div className="w-10 h-10 rounded-full bg-yellowish shadow-md hover:scale-110 transition" />
-          <div className="w-10 h-10 rounded-full bg-greenish border border-gray-800 shadow-md hover:scale-110 transition" />
-          <div className="w-10 h-10 rounded-full bg-reddish shadow-md hover:scale-110 transition" />
+          {colorOptions.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedImage(option.img)}
+              className={`w-10 h-10 rounded-full ${option.color} shadow-md hover:scale-110 transition cursor-pointer`}
+            />
+          ))}
         </div>
 
         <p className="text-lg text-secondary">Choose a color that fits your flow.</p>
@@ -116,8 +153,8 @@ function Home() {
 
       {/* Feature Section */}
       <div>
-        <img className="hidden md:block" src={featureImage} alt="Feature" />
-        <img className='md:hidden' src={featureImageMobile} alt="Feature" />
+        <Link to='/Compare'><img className="hidden md:block" src={featureImage} alt="Feature" /></Link>
+        <Link to='/Compare'><img className='md:hidden' src={featureImageMobile} alt="Feature" /></Link>
       </div>
 
 

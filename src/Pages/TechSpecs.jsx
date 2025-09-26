@@ -1,33 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Components/Header'
 import HeadPhoneG from '../Assests/headphonesG.png';
+import HeadPhoneY from '../Assests/headphonesY.png';
+import HeadPhoneR from '../Assests/headphonesR.png';
 import FeatureBlock from '../Components/FeatureBlock';
 import Footer from '../Components/Footer';
 
 function TechSpecs() {
+  const [selectedImage, setSelectedImage] = useState(HeadPhoneG);
+
+  const colorOptions = [
+    { color: "bg-yellowish", img: HeadPhoneY },
+    { color: "bg-greenish border border-gray-800", img: HeadPhoneG },
+    { color: "bg-reddish", img: HeadPhoneR },
+  ];
+
   return (
     <div className='font-poppins  h-screen bg-gray-100'>
 
       <Header />
 
 
-      <div className='pt-36'>
+      <div className='pt-40 px-5'>
         <p className=' px-5 md:px-32 text-3xl md:text-4xl text-primary font-semibold'>Color</p>
       </div>
 
       <div className="flex flex-col px-5 md:px-32 -mt-6 pb-24  items-center">
         <div>
-          <img src={HeadPhoneG} alt="Headphone Yellow" />
+          <img src={selectedImage} alt="Headphone Yellow" />
         </div>
-        <div className="flex gap-8">
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellowish shadow-md hover:scale-110 transition" />
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-greenish border border-gray-800 shadow-md hover:scale-110 transition" />
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-reddish shadow-md hover:scale-110 transition" />
+        <div className="flex gap-8 py-8">
+          {colorOptions.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedImage(option.img)}
+              className={`w-10 h-10 rounded-full ${option.color} shadow-md hover:scale-110 transition cursor-pointer`}
+            />
+          ))}
         </div>
       </div>
 
 
-      <div className='bg-gray-100'>
+      <div className='-mt-24'>
         <FeatureBlock
           title={<>Audio<br />Technology</>}
           description={

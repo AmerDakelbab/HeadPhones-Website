@@ -10,12 +10,12 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className='bg-transparent'>
 
 
       <div className='hidden  w-full md:flex justify-between items-center px-12 py-6 z-10 absolute top-0 '>
         <div>
-          <img className='w-36' src={Logo} alt="logo" />
+          <Link to='/'><img className='w-36' src={Logo} alt="logo" /></Link>
         </div>
         <div>
           <Link to='/'><GradButton variant="text" >Home</GradButton></Link>
